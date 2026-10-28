@@ -1,0 +1,640 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css");
+
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /* 
+      Color mode HSL(hue, saturation, lightness)
+
+      Change favorite color:
+
+      Default Cyan: hsl(180, 80%, 48%)
+      Blue: hsl(220, 90%, 64%) - Pink: hsl(300, 70%, 64%)
+      Green: hsl(110, 70%, 64%) - Purple: hsl(255, 70%, 64%)
+      Orange: hsl(15, 80%, 64%) - Red: hsl(358, 80%, 64%)
+
+      For more colors visit: https://htmlcolorcodes.com/
+      -> Choose any color 
+      -> Copy the color mode (HSL)
+  */
+  --hue: 201;
+  --first-color: hsl(var(--hue), 85%, 65%);
+  --first-color-alt: hsl(var(--hue), 80%, 44%);
+  --white-color: hsl(var(--hue), 8%, 92%);
+  --black-color: hsl(var(--hue), 4%, 8%);
+  --gray-color: hsl(var(--hue), 4%, 50%);
+  --body-color: hsl(var(--hue), 8%, 8%);
+  --container-color: hsl(var(--hue), 8%, 12%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Unbounded", sans-serif;
+  --bigger-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+:root {
+	--primary-color: hsl(var(--hue), 85%, 65%);;
+	--text-color: #727171;
+}
+html {
+	font-size: 10px;
+}
+body {
+	font-family: Inter, sans-serif;
+	background-color: black;
+	color: white;
+}
+
+/* common styles */
+img {
+	width: 100%;
+}
+.profile__image {
+  width: 450px;
+  height: 240px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+
+  background-color: var(--black-color);
+  border: none; /* IMPORTANT: remove border from here */
+  box-shadow: 0 8px 32px hsla(var(--hue), 80%, 48%, .3);
+  transition: transform .6s ease, box-shadow .6s ease;
+
+  isolation: isolate; /* IMPORTANT: fixes iOS layering */
+}
+
+.profile__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 5px solid var(--first-color); /* IMPORTANT: turn this ON */
+  pointer-events: none;
+  z-index: 5;
+}
+
+.profile__image img {
+  width: 250px;
+  height: auto;
+  filter: drop-shadow(0 4px 16px hsla(0, 0%, 0%, .25));
+  margin-left: 26px;
+
+  position: relative;
+  z-index: 1;
+}
+
+
+
+.profile__image:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px hsla(var(--hue), 80%, 48%, .45);
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+.description {
+	margin-top: 1rem;
+	font-size: 1.5rem;
+	font-weight: 400;
+	color: var(--text-color);
+}
+.title {
+	color: var(--primary-color);
+	font-weight: 700;
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+.item_preTitle {
+	font-size: 1.4rem;
+	color: var(--text-color);
+	font-weight: 300;
+}
+.item_title {
+	font-size: 1.6rem;
+	color: white;
+	font-weight: 500;
+	margin: 0.8rem 0;
+}
+.item_subtitle {
+	font-size: 1.4rem;
+	color: var(--text-color);
+	font-weight: 400;
+}
+
+/* layouts */
+.container {
+	max-width: 1000px;
+	width: 90%;
+	margin: 0 auto;
+	display: grid;
+	padding: 5rem;
+	background: #070707;
+	grid-template-columns: 1fr 1fr;
+	gap: 4rem;
+}
+/* Ferg Add Ons */
+/* ===== Back to Home Button ===== */
+.back-home{
+  position: absolute;
+  top: 2rem;
+  right: 2rem;   /* ← THIS is the key */                /* distance from left */
+
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+
+  font-size: 1.2rem;
+  font-weight: 500;
+
+  color: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.15);
+  padding: .6rem 1.2rem;
+  border-radius: 999px;
+
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(6px);
+
+  transition:
+    color .3s ease,
+    border-color .3s ease,
+    transform .3s ease,
+    background .3s ease;
+
+  z-index: 10;                 /* stays above avatar */
+}
+
+.back-home:hover{
+  color: var(--first-color);
+  border-color: var(--first-color);
+  background: rgba(255,255,255,.06);
+  transform: translateX(-4px);
+}
+
+
+/* Home Button==================================== */
+/* FOOTER==================================== */
+.container{
+  position: relative;
+  padding-bottom: 15rem; /* space for footer so it doesn't overlap content */
+}
+
+/* Force footer to span the FULL card width and sit at the bottom */
+.group-2 .footer{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  margin: 0;
+  padding: 3.5rem 0 2rem;
+}
+
+/* IMPORTANT: your footer container has class="container"
+   so we override the resume .container styles ONLY inside the footer */
+.group-2 .footer .footer__container.container{
+  /* kill the resume-card container look */
+  max-width: 1000px;      /* match your resume card width */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 5rem;        /* match your .container padding */
+  background: transparent;
+
+  /* enforce footer layout */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0;
+}
+/* LOGO (left, bigger, bold, fast hover) */
+.group-2 .footer .footer__logo{
+  justify-self: start;           /* <-- left */
+  margin: 0;                     /* kill any weird spacing */
+  font-size: 28px;               /* bigger like other page */
+  font-weight: 800;              /* bold */
+  letter-spacing: .2px;
+
+  color: var(--white-color);
+  transition: color .35s ease, transform .35s ease;
+}
+.group-2 .footer .footer__logo:hover{
+  color: var(--first-color);
+  transform: translateY(-4px);
+}
+
+/* Links row */
+.group-2 .footer .footer__links{
+  display: flex;
+  justify-content: center; /*Word / Text*/
+  gap: 3rem;
+  margin: 0;
+  font-size: 16px;
+}
+.group-2 .footer .footer__link{
+  color: rgba(255,255,255,.85);
+  transition: color .35s ease, transform .35s ease;
+}
+.group-2 .footer .footer__link:hover{
+  color: var(--first-color);
+  transform: translateY(-3px);
+}
+
+.group-2 .footer .footer__social{
+  display: flex;
+  justify-content: flex-end; /*Logos*/
+  gap: 1rem;
+  font-size: 25px;
+}
+
+/* Copy should always center */
+.group-2 .footer .footer__copy{
+  display: block;
+  margin-top: 2rem;
+  text-align: center;
+}
+.group-2 .footer .footer__social-link{
+  color: rgba(255,255,255,.85);
+  transition: color .35s ease, transform .35s ease;
+}
+.group-2 .footer .footer__social-link:hover{
+  color: var(--first-color);
+  transform: translateY(-4px);
+}
+
+
+
+/* MEDIA================================== */
+@media only screen and (max-width: 768px) {
+	.container {
+		width: 100%;
+		grid-template-columns: 1fr;
+		padding: 3rem;
+		gap: 7rem;
+	}
+}
+.profile {
+	grid-column: 1 / -1;
+	margin-bottom: 2rem;
+}
+.group-1,
+.group-2 {
+	display: flex;
+	flex-direction: column;
+	gap: 5rem;
+}
+.group-3 {
+	max-width: 700px;
+	width: 100%;
+	margin: 0 auto;
+	grid-column: 1/-1;
+	display: flex;
+	flex-direction: row;
+	gap: 5rem;
+}
+.group-3 > div {
+	flex: 1;
+}
+
+
+/* MEDIA========================================================================== */
+@media only screen and (max-width: 768px) {
+	.profile {
+		margin-bottom: 0;
+	}
+	.group-3 {
+		flex-direction: column;
+	}
+}
+
+/* profile */
+.profile_container {
+	display: flex;
+	gap: 2rem;
+}
+.profile_profileImg {
+	max-width: 250px;
+}
+.profile_name_firstName {
+	color: white;
+	font-weight: 200;
+	font-size: clamp(2rem, 8vw, 4rem);
+	text-transform: uppercase;
+	display: block;
+	margin-bottom: -0.8rem;
+}
+.profile_name_lastName {
+	color: var(--primary-color);
+	font-weight: 700;
+	font-size: clamp(2.5rem, 15vw, 7rem);
+	text-transform: uppercase;
+	display: block;
+}
+.profile_title {
+	font-size: 1.5rem;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+.downloadBtn {
+	display: block;
+	text-decoration: underline;
+	font-size: 1.6rem;
+	margin-top: 1rem;
+}
+.downloadBtn:hover {
+	color: var(--primary-color);
+}
+
+
+@media only screen and (max-width: 768px) {
+	.profile_container {
+		flex-direction: column;
+	}
+}
+
+/* Expertise */
+.skills_list {
+	margin-top: 1rem;
+	margin-left: 2rem;
+	line-height: 2;
+}
+
+/* Ref  */
+.ref_item {
+	margin-top: 2rem;
+}
+.ref_name {
+	font-size: 1.6rem;
+	font-weight: 700;
+}
+
+/* eduction */
+.edu_item {
+	margin-top: 2rem;
+}
+
+/* certification */
+.certification_item {
+	margin-top: 2rem;
+}
+/* exp */
+.exp_item {
+	margin-top: 2rem;
+}
+
+/* awards */
+.awards_item {
+	margin-top: 2rem;
+}
+/* Interests */
+.interest_items {
+	margin-top: 2rem;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+.interest_item {
+	font-size: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	color: var(--text-color);
+}
+.interest_item svg {
+	width: 2rem;
+}
+
+/* socials */
+.social_items {
+	margin-top: 2rem;
+}
+.social_item {
+	margin-top: 1.5rem;
+	font-size: 1.5rem;
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	justify-content: flex-start;
+	color: var(--text-color);
+}
+.social_item:hover {
+	color: var(--primary-color);
+}
+.social_item svg {
+	width: 2rem;
+}
+
+hr {
+	grid-column: 1/-1;
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 5rem;
+	margin-bottom: 1rem;
+	border: none;
+	border-top: 2px solid rgba(128, 128, 128, 0.229);
+}
+@media only screen and (max-width: 768px) {
+	hr {
+		margin: 0 auto;
+	}
+	/* Footer */
+
+  /* ===== Footer: tablet/phone friendly at 768px and below ===== */
+
+  /* give the footer more breathing room + keep it from overlapping */
+    .container{
+    padding-bottom:21.5rem;
+  }
+
+
+  .group-2 .footer{
+    padding: 2.25rem 0 1.75rem;  /* slightly tighter than desktop but still big */
+  }
+  
+
+  /* stack footer instead of 3 columns */
+  .group-2 .footer .footer__container.container{
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+    justify-items: center;
+    text-align: center;
+    padding: 0 3rem; /* matches your mobile container padding */
+	
+  }
+
+  /* logo bigger + bold */
+  .group-2 .footer .footer__logo{
+    justify-self: center;
+    font-size: 30px;
+    font-weight: 800;
+	
+  }
+
+  /* links wrap nicely */
+  .group-2 .footer .footer__links{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .85rem 1.75rem;
+    font-size: 16px;
+  }
+
+  /* socials centered and visible */
+  .group-2 .footer .footer__social{
+    justify-content: center;
+    font-size: 26px;
+    gap: 1.25rem;
+  }
+
+  /* copy spacing */
+  .group-2 .footer .footer__copy{
+    margin-top: 1.75rem;
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 430px){
+	
+	.container{
+    padding-bottom: 19.5rem;
+  } 
+	
+	.group-2 .footer .footer__logo{
+		font-size: 25px;
+	}
+	.group-2 .footer .footer__links{
+		font-size: 15px;
+	}
+	 .group-2 .footer .footer__social{
+ 
+    font-size: 23px;
+ 
+  }
+  /* Home Button =========== */
+  .back-home{
+  position: absolute;
+  top: 1rem;
+  right: 2rem;   /* ← THIS is the key */                /* distance from left */
+
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+
+  font-size: 1.0rem;
+  }
+  /* Home Logo ============= */
+  @media only screen and (max-width: 430px){
+
+  /* Center everything in the profile stack */
+  .profile_container{
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Force the avatar circle to center */
+  .profile__image{
+    margin: 0 auto;
+  }
+
+  /* Center name + text under the image */
+  .profile_name_firstName,
+  .profile_name_lastName,
+  .profile_title,
+
+  .downloadBtn{
+    text-align: center;
+  }
+
+}
+
+}
+/* Hover Add On */
+/* ===== Section title hover (subtle lift) ===== */
+/* ===== Section title hover (subtle lift – ALL blue titles) ===== */
+
+/* Any element inside group-2 that is blue */
+/* ===== Section title hover (ALL blue titles) ===== */
+.group-1 .title,
+.group-2 .title,
+.group-1 h4,
+.group-1 strong,
+.group-1 .item_title,
+.group-1 .ref_title,
+.group-2 h4,
+.group-2 strong,
+.group-2 .item_title,
+.group-2 .ref_title{
+  display: inline-block; /* ensures transform always works cleanly */
+  transition: transform .25s ease, color .25s ease;
+}
+
+@media (hover: hover){
+  .group-1 .title:hover,
+  .group-2 .title:hover,
+  .group-1 h4:hover,
+  .group-1 strong:hover,
+  .group-1 .item_title:hover,
+  .group-1 .ref_title:hover,
+  .group-2 h4:hover,
+  .group-2 strong:hover,
+  .group-2 .item_title:hover,
+  .group-2 .ref_title:hover
+  {
+    transform: translateY(-4px);
+    color: var(--first-color);
+  }
+}
+
+
+/* Imag Fix */
+
+/* FIX: force the avatar to actually CLIP on mobile */
+@media (max-width: 540px){
+
+  /* hard-clip the whole avatar container */
+  .profile__image{
+    overflow: hidden;         /* keep */
+    border-radius: 50%;       /* keep */
+
+    /* this is the key for mobile browsers */
+    -webkit-mask-image: radial-gradient(circle, #000 99%, transparent 100%);
+            mask-image: radial-gradient(circle, #000 99%, transparent 100%);
+  }
+
+  /* optional but recommended: drop-shadow can render outside the mask on mobile */
+  .profile__image img{
+    filter: none;
+  }
+}

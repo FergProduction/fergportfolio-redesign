@@ -1,0 +1,2682 @@
+
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /* 
+      Color mode HSL(hue, saturation, lightness)
+
+      Change favorite color:
+
+      Default Cyan: hsl(180, 80%, 48%)
+      Blue: hsl(220, 90%, 64%) - Pink: hsl(300, 70%, 64%)
+      Green: hsl(110, 70%, 64%) - Purple: hsl(255, 70%, 64%)
+      Orange: hsl(15, 80%, 64%) - Red: hsl(358, 80%, 64%)
+
+      For more colors visit: https://htmlcolorcodes.com/
+      -> Choose any color 
+      -> Copy the color mode (HSL)
+  */
+  --hue: 201;
+  --first-color: hsl(var(--hue), 85%, 65%);
+  --first-color-alt: hsl(var(--hue), 80%, 44%);
+  --white-color: hsl(var(--hue), 8%, 92%);
+  --black-color: hsl(var(--hue), 4%, 8%);
+  --gray-color: hsl(var(--hue), 4%, 50%);
+  --body-color: hsl(var(--hue), 8%, 8%);
+  --container-color: hsl(var(--hue), 8%, 12%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Unbounded", sans-serif;
+  --bigger-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+
+/* Beginnning */
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap");
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+html, body {
+  scroll-behavior: smooth;
+}
+
+
+/* HEADING*/  
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: rgb(23, 23, 23);
+    font-family: 'Unbounded', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: block;
+}
+
+header {
+    position: relative;
+    width: 80%;
+    height: 90%;
+    height: 90vh;
+    margin: 30px auto 0;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    overflow: hidden; 
+    box-shadow: 0px 10px 25px -8px;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../../Fimages/Wallpapers_Artwork/PermaFrost/PermaFrost_FinaleB_Cutscene1080Full.png')no-repeat center center/cover;
+    opacity: 1; /*optional */
+    z-index: -1;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #000);
+    opacity: .5; /*gradient intensity */
+    z-index: -1;
+    
+}
+
+header video {
+    position: absolute;
+    width: 120%;
+    height: 190%;
+    top: -47%;
+    z-index: -1;
+}
+
+header nav {
+    width: 100%;
+    height: 10%;
+   /* border: 1px solid #fff; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 42px 30px; /*Header Left To Right*/
+}
+
+header nav .logo_ul {
+     display: flex;
+    align-items: center;
+    justify-content: center; /* logo Header placement*/ 
+}
+/*Header button adjustments*/
+
+
+header nav li a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(0, 102, 255, 0.55);
+}
+/*Back To Home Menu Button Exit Button*/
+header nav li a.back-home{
+    background: linear-gradient(135deg, #8d8d8d, #787878);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+}
+
+
+
+
+/*Header Extra Back To Home Menu*/
+
+header nav .logo_ul img{
+  width: 60px; /*Ferg Logo Size*/
+}
+
+
+header nav .logo_ul ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: nowrap;
+}
+
+header nav .logo_ul ul li{
+    padding: 3px 15px;
+}
+
+header nav .logo_ul ul li a{ 
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    transition: .3s linear;
+    white-space: nowrap;
+}
+
+header nav .logo_ul ul li a:hover{
+    color: rgb(255, 255, 255, .7);
+}
+
+/*==================================SEARCH MENU========================= */
+
+header nav .search_user {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header nav .search_user input{
+    padding: 10px 80px 10px 20px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background: rgb(255, 255, 255, .3);
+    color: #fff;
+    
+}
+
+header nav .search_user input::placeholder{
+    color: #fff; 
+}
+
+header nav .search_user img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 25px;
+}
+
+header nav .search_user .search {
+    position: absolute;
+    width: 320px;
+    height: 290px;
+    /* border: 1px solid #fff; */
+    right: 0;
+    top: 60px;
+    z-index: 99999;
+    overflow-y: auto;
+    
+}
+/*===========================SCOLLER SEARCH MENU========================= */
+header nav .search_user .search::-webkit-scrollbar {
+   width: 5px;
+   background: rgb(255, 255, 255, .3);
+   border-radius: 5px;
+   visibility: hidden;
+}
+
+header nav .search_user .search::-webkit-scrollbar-thumb {
+   width: 5px;
+   background: rgb(255, 255, 255, .4);
+   border-radius: 5px;
+   visibility: hidden;
+}
+
+header nav .search_user .search:hover::-webkit-scrollbar {
+   visibility: visible;
+}
+
+header nav .search_user .search:hover::-webkit-scrollbar-thumb {
+   visibility: visible;
+}
+
+/*===========================SCOLLER SEARCH MENU========================= */
+
+header nav .search_user .search .card {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 3px 0px;
+    text-decoration: none;
+    display: none;
+}
+
+
+
+header nav .search_user .search .card::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255, .1);
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    z-index: -1;
+}
+
+header nav .search_user .search .card img{
+  width: 28px;
+  height: 90%;
+  border-radius: 2px;
+  margin-left: 8px;
+}
+
+header nav .search_user .search .card .cont{
+    margin-left: 10px;
+    color: #fff;
+}
+
+header nav .search_user .search .card .cont h3{
+    font-size: 14px;
+    line-height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 250px;
+}
+
+header nav .search_user .search .card .cont p{
+    font-size: 10px;
+    color: rgb(255, 255, 255, .8);
+}
+
+header nav .search_user .search .card .cont span{
+    background: yellow;
+    color: #000;
+    padding: 0px 3px;
+    margin: 0px 5px;
+    font-weight: 500;
+}
+/*=============================================Content========================= */
+
+/*header .content{
+    position: relative;
+    color:#fff;
+    margin-top: 80px;  /*Content Heading Movement
+    padding-left: 120px;
+}*/
+
+header .content {
+    position: relative;
+    color: #fff;
+    height: 40%; /*Up & Down From Screen Contrl*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 60px; /*Left & Right*/
+}
+
+
+header .content h1{
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+header .content p {
+    font-size: 12px;
+    max-width: 520px;   /* ← controls how far it can go */
+    line-height: 1.6; 
+    word-break: normal;
+    color: rgba(255,255,255,.85);
+    margin-bottom: 10px;
+}
+
+
+header .content .details{
+    display: flex;
+    align-items: center;
+    margin-top: 5x;
+    gap: 10px;
+}
+
+header .content h6 {
+    color: rgb(255, 255, 255, .8);
+    font-size: 10px;
+    margin-bottom: 0px;
+}
+
+header .content .details h5 {
+    color: rgb(142, 230, 48);
+    font-size: 10px;
+    margin-right: 0px;
+}
+
+header .content .details h4 {
+    color: rgb(255, 255, 255, .8);
+    font-size: 10px;
+}
+
+header .content .details h3 {
+    color: rgb(255, 255, 255, .8);
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+}
+
+header .content .details h3 span {
+     background: yellow;
+    color: #000;
+    padding: 0px 3px;
+    margin: 0px 5px 0px 5px;
+    font-weight: 500;
+}
+
+header .content .details h3 i{
+     margin-right: 5px;
+}
+/* Content Buttons*/
+
+header .content .btns {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+header .content .btns a{
+    padding: 8px 12px;
+    font-size: 18px;
+    font-weight: 600;
+    background: linear-gradient(180deg, #4c9fcb, #009dff);
+    border-radius: 5px;
+    color: #fff;
+    margin-left: 10px;
+    text-decoration: none;
+}
+/* =========================HEADER SECTION=============================*/
+
+header section {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    padding: 0px 50px;
+    bottom: 20px;
+    color: #fff
+}
+
+header section h4 {
+    margin-bottom: 18px; /* default browser margin is bigger */
+    font-size: 18px;
+    margin-left: 4px;
+}
+
+
+header section .cards{ /* Bottom Section*/
+    position: relative;
+    width: 100%;
+    height: 260px; /*Height Of Bottom Section*/
+    /*border: 1px solid #fff; /*Border Of Bottom Section*/
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+header section .cards::-webkit-scrollbar{ /* Bottom Section*/
+   display: none;
+}
+
+
+/*===========================Bottom Section=============================*/
+header section .cards .card {
+    position: relative;
+    min-width: 170px;
+    height: 250px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    margin-right: 20px;
+    background: #000;
+    transition: .3s linear;
+}
+
+header section .cards .card .poster {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    position: relative;
+}
+
+header section .cards .card:hover{
+    min-width: 300px; /*card spread of the bottom section*/
+    overflow: hidden;
+}
+/*this is the longer 1080 side of the card*/
+header section .cards .card .rest_card{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    opacity: 0;
+    transition: .3s linear;
+}
+
+header section .cards .card .rest_card img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    z-index: -1;
+}
+
+header section .cards .card .rest_card::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #000);
+    opacity: .5; /*gradient intensity */
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    
+}
+/*description of Rest Card*/
+header section .cards .card .rest_card .cont {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    left: 0;
+    color: #fff;
+    padding: 0px 10px;
+}
+
+header section .cards .card .rest_card .cont .sub{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+header section .cards .card .rest_card .cont .sub p{
+    font-size: 11.5px;
+    font-weight: 400;
+    color: rgb(255, 255, 255, .7);
+
+}
+
+header section .cards .card .rest_card .cont .sub h3{
+    color: #fff;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+header section .cards .card .rest_card .cont .sub h3 span{
+    background: yellow;
+    color: #000;
+    padding: 0px 3px;
+    margin: 0px 5px 0px 10px;
+    font-weight: 500;
+    border-radius: 2px;
+    
+}
+
+header section .cards .card .rest_card .cont .sub h3 i {
+    margin-right: 3px;
+}
+header section .cards .card .rest_card .cont h4{
+  margin-bottom: 10px;
+  
+}
+
+
+header section .cards .card:hover .rest_card{
+    opacity: 1;
+}
+
+header section .bi-chevron-left, /*Side By Side Arrows*/
+ .bi-chevron-right{
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    width: 25px;
+    height: 25px;
+    background: rgb(255, 255, 255, .3);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+    transition: .3s linear;
+    z-index: 999999999;
+    opacity: 0;
+}
+
+ header section .bi-chevron-right {
+    left: unset;
+    right: 3%;
+ }
+
+ header section:hover .bi-chevron-right{
+    opacity: 1;
+ }
+
+ header section:hover .bi-chevron-left{
+    opacity: 1;
+ }
+ /*================================Outside Box===============================================*/
+/* Download Page Start */
+
+ .down_page{
+    width: 90%;
+    height: auto;
+    margin: 50px auto 0px; /*Tjis is the distance from the other sections*/
+    /* border: 1px solid #fff; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /*This is the borders*/
+    gap: 0px; /*Space In Between*/
+ }
+
+ .down_page .img_bx, .cont_bx{
+    width: 50%;
+    height: 450px;
+    /* border: 1px solid #fff;   */
+    color: #fff;
+    /* margin-bottom: 20px; */
+ }
+
+ .down_page .img_bx img {
+    width: 90%;
+    height: 90%; /*This is part of the image size (inside) the box*/
+    border-radius: 10px;
+ }
+ .down_page .cont_bx{
+  padding-top: 10px;
+}
+
+ /* Text / Words */
+  .down_page .cont_bx h1{
+   padding-bottom: 0px;
+ } 
+ .down_page .cont_bx p{
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    /* min-width: 1px; */
+ }
+ .down_page .cont_bx h3{
+    font-size: 15px;
+    margin-bottom: 20px;
+ }
+
+ .down_page .cont_bx h3 span {
+    background: yellow;
+    color: #131312;
+    padding: 0px 5px;
+ }
+
+ .down_page .cont_bx h3 i{
+    color: yellow;
+    margin: 0px 5px;
+ }
+
+ .down_page .cont_bx .screen_shot_bx {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+ }
+
+ .down_page .cont_bx .screen_shot_bx img{
+    width: 190px; /*Inside Image Sizes*/
+    height: 140px;
+    border-radius: 10px;
+    margin-right: 10px;
+ }
+ /* Buttons Download Page */
+    .down_page .cont_bx .btns{
+        display: flex;
+        align-items: center;
+    }
+    .down_page .cont_bx .btns a {
+        padding: 5px 30px;
+        text-decoration: none;
+        background: rgb(184, 184, 184, .1);
+        color: #fff;
+        border-radius: 20px;
+        margin-right: 10px;
+        transition: .3s linear;
+         margin-top: 5px; 
+    }
+    .down_page .cont_bx .btns a:hover{
+        background: red;
+    }
+/* Download Page End */
+/* Trend Boxes Start */
+ .tranding_bx {
+    width: 90%;
+    height: auto;
+    border-bottom: 2px solid rgb(184, 184, 184, .1);
+    margin: auto;
+    padding: 40px 0px; /*this is the separation from top to bottom*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.tranding_bx li{
+    list-style: none;
+}
+.tranding_bx li a{
+    text-decoration: none;
+    color: rgb(255, 255, 255, .7); /*Text Color*/
+    font-size: 15px;
+    transition: .3s linear;
+}
+.tranding_bx li a:hover{
+    color: #fff
+}
+.tranding_bx li .fas{
+    margin-right: 5px;
+}
+
+.tranding_bx li a span {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: transparent;
+    border-radius: 50%;
+    bottom: -10px;
+    left: 6.6%;
+}
+ /*Tranding box active classes start*/
+/* .tranding_bx li .active {
+  font-size: 15px;
+  color: #fff;
+}
+
+.tranding_bx li .active span {   ========== DOT==========
+  background: #4c9fcb;
+} */
+
+ /*Cato Box================*/
+ .cato_bx {
+    position: relative;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    /*border: 1px solid #fff; */ 
+    display: flex;
+    align-items: center;
+    padding: 20px 40px 20px 0px;
+    overflow: auto;
+    scroll-behavior: smooth;
+    z-index: 999;
+ }
+
+ .cato_bx::-webkit-scrollbar{
+    display: none; /* scroller bar*/
+ }
+ 
+ .cato_bx button {  /*===Button Customization================*/
+    padding: 4px 30px;
+    background: red;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 20px;
+    font-family: 'unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    margin-right: 10px; /*this is separation*/
+    cursor: pointer;
+    transition: .3s linear;
+    white-space: nowrap; /*One Rectnalge space*/
+ }
+ .cato_bx button:hover {
+    background: rgb(184, 184, 184, .1);
+ }
+ /*Button arrows*/
+.cato_bx .cato_left_right {
+    position: sticky;
+    right: 1.5%;
+    bottom: 0px;
+    color: #fff;
+    cursor: pointer;
+    /* Hover Effect */
+     display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+
+  transition:
+    transform .25s ease,
+    color .25s ease,
+    background-color .25s ease;
+}
+.cato_bx .cato_left_right:hover{
+  transform: scale(1.25) translateY(-2px);
+  color: var(--first-color);
+/* this is the left hover button */
+}
+
+/* .cato_bx .cato_left_right:active{
+  transform: scale(1.1);
+} */
+ /* hover Effect Arrows*/
+.cato_bx .cato_left_right:nth-last-child(1) {
+   right: 0%;
+   margin-bottom: 0;
+}
+.cato_bx .cato_left_right:nth-last-child(1):hover {
+   right: 0%;
+   margin-top: -1.05px;
+   transform: scale(1.25) translateY(-2px) rotate(180deg);
+    /*this is the right hover button  */
+}
+
+.cato_bx .cato_left_right i {
+    transform: rotate(90deg);
+    
+}
+ 
+.cato_bx .cato_left_right:nth-last-child(1) {
+    transform: rotate(180deg) ;
+}
+/*Movie Boxes==================================================*/
+
+/* cato button java class start */
+.cato_bx .cato_button_active {
+    background: rgb(184, 184, 184, .1);
+}
+/* cato button java class end */
+
+
+.movie_bx_1{
+    /* position: relative; */
+    width: 100%;
+    height: 310px;
+    /* border: 1px solid #fff; */
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    scrollbar-width: smooth;
+    overflow-x: auto;
+    overflow-y: visible;
+}
+/*Movie Bx 1 Transition Start*/
+.movie_bx_1 .card{
+    transition: 
+      transform 0.25s cubic-bezier(.4,0,.2,1),
+      box-shadow 0.25s cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+}
+
+.movie_bx_1 .card:hover{
+    transform: scale(1.08) translateY(-6px);
+    z-index: 5;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+}
+
+/*Movie Bx 1 Transition End*/
+/* Movie Extra Box */
+    .movie_bx_1 .movie_bxx { /* This is main controller of TOP movement box*/
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 100%;
+        /* border: 1px solid #fff; */
+        gap: 3px; /* THIS IS HOW SEPARATE CARDS ARE*/
+    }
+/* Movie box Java Class Start */
+    .movie_bx_1 .movie_box_active{
+        display: none;
+    }
+
+
+/* Movie box Java Class End */
+
+.movie_bx_1 .card{
+    min-width: 170px;
+    height: 300px;
+    /* border: 1px solid #fff; */
+    flex: 0 0 auto;
+    margin: 0px 9px;
+}
+
+.movie_bx_1::-webkit-scrollbar{
+    display: none;
+}
+/* Main Card Stuff */
+.movie_bx_1 .card:nth-child(1) {
+    margin: 0px 0px 0px 5px;
+}
+
+.movie_bx_1 .card a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.movie_bx_1 .card a img{
+    width: 100%;
+    height: 80%;
+}
+ /*This is text */
+
+.movie_bx_1 .card a .content{
+    width: 100%;
+    height: 15%;
+    /* border: 1px solid #fff; */
+    margin-top: 5px;
+}
+
+.movie_bx_1 .card a .content h5{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.movie_bx_1 .card a .content h6{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.movie_bx_1 .card a .content h6 span{
+    color: rgb(255, 255, 255, .6);
+    font-weight: lighter;
+    font-size: 9.5px;
+    margin-top: 4px;
+}
+
+.movie_bx_1 .card a .content h6 .rate{
+    display: flex;
+    align-items: center;
+}
+.movie_bx_1 .card a .content h6 .rate i{
+    margin-right: 7px;
+    font-size: 9px;
+    color: rgb(255, 255, 255, .6);
+}
+.movie_bx_1 .card a .content h6 .rate i:nth-last-child(2){
+    color: #fff134;
+    margin-left: 2px;
+}
+.movie_bx_1 .card a .content h6 .rate h6{
+    color: #fff134;
+    margin-top: 3px;
+    font-size: 11px;
+    height: 5px;
+}
+/* Arrow Buttons For Bottom Cards  */
+    .movie_bx_1 button{ /*Arrow Color*/
+          position: sticky;
+        border: none;
+        outline: none;
+        color: #fff;
+        background: none;
+        left: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 999;
+    }
+    .movie_bx_1 button::before{
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 25px;
+        background: rgb(255, 255, 255, .5); /*Arrow Background*/
+        border-radius: 50%;
+        left: -5px;
+        top: -1px;
+        z-index: -1;
+        transition: .3s linear;
+        
+    }
+
+     .movie_bx_1 button:hover::before{
+        background: rgb(255, 0, 0, .5);/*Button Color*/
+     }
+
+     .movie_bx_1 button:nth-child(2){
+        left: 98%;
+     }
+
+     .movie_bx_1 button:nth-child(1) i{
+        transform: rotate(-270deg);
+    
+     }
+     .movie_bx_1 button:nth-child(2) i{
+        transform: rotate(-90deg);
+     }
+     .movie_bx_1 button:nth-child(2)::before{
+        left: -7px;
+        top: -1px;
+     }
+     /*Video Box Start (Video)========================================*/
+
+    .video_bx{
+  position: relative;
+  width: min(95vw, 2000px);  /* ✅ grows nicely up to ~2K */
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;      /* ✅ always same shape */
+  height: auto;              /* ✅ no fixed height */
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+     .video_bx video{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;      /* ✅ no bars, but crops edges */
+}
+
+     /* Video Controls */
+     .video_bx .control{
+        position: absolute;
+        width: 90%;
+        height: 40px;
+        background: #131312;
+        /* border: 1px solid #fff; */
+        border-radius: 20px;
+        bottom: 10px;
+        /* left: 5px; */
+        padding: 0px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 999;
+     }
+
+     .video_bx .control .play_redo{
+        position: relative;
+        width: 60px;
+        height: 100%;
+        /* border: 1px solid #fff; */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #fff;
+     }
+     /* Video Button Setting Right Side */
+     .video_bx .control .play_redo .bi{
+        font-size: 22px;
+        cursor: pointer;
+     }
+
+     .video_bx .control .play_redo .bi:nth-child(2){
+        transform: scaleX(-1);
+     }
+    
+     .video_bx .control .play_redo span{
+        position: absolute;
+        color: #fff;
+        font-size: 7px;
+        top: 16px;
+        right: 6.5px;
+        z-index: -1;  
+     }
+ /* Video Button Setting Middle Section */
+     .video_bx .control .start_seekbar_end {
+        width: 85%;
+        height: 100%;
+        /* border: 1px solid #fff; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+     }
+
+     .video_bx .control .start_seekbar_end span {
+        color: rgb(255, 255, 255, .7);
+        font-size: 13px;
+        margin: 0px 28px;
+        width: 55px;
+        text-align: center; /*Playbar Settings*/
+     }
+
+     .video_bx .control .start_seekbar_end .seek{
+        position: relative;
+        width: 85%;
+     } 
+     
+     .video_bx .control .start_seekbar_end .seek input{
+        width: 100%;
+        margin-top: 7px;
+        cursor: pointer;
+        opacity: 0; /*Playbar Opacity*/
+     } 
+
+      .video_bx .control .start_seekbar_end .seek h5{
+        position: absolute;
+        width: 50%;
+        height: 8px;
+        
+        background: red; /*Playbar Slider Color*/
+        border-radius: 20px;
+        top: 11px;
+        transition: 1s linear;
+        z-index: -1;
+    
+      }
+
+      .video_bx .control .start_seekbar_end .seek h4{
+        position: absolute;
+        width: 100%;
+        height: 8px;
+        background: rgb(184, 184, 184, .2); /*Playbar Slider Background Coor*/
+        border-radius: 20px;
+        top: 11px;
+        transition: 1s linear;
+        z-index: -1;
+      }
+
+      .video_bx .control .start_seekbar_end .seek h6{
+        position: absolute;
+        width: 1.4%;
+        height: 12px;
+        background: #fff; /*Playbar CircleColor*/
+        border-radius: 50px;
+        top: 11px;
+        transition: 1s linear;
+        z-index: -1;
+        margin-left: -5px;
+        top: 8.5px;
+        left: 50%;
+      }
+        /*left Control Buttons */
+      .video_bx .control .cc_vol_screen{
+        position: relative;
+        width: 8%;
+        height: 30px;
+        /* border: 1px solid #fff; Settings For Left Control Buttons Border Controls/Size */
+        transition: 1s linear;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      /*Volume Controls*/
+      .video_bx .control .cc_vol_screen .bi{
+        color: #fff; /*Buttons Color*/
+        font-size: 20px; /*Font Size*/
+        cursor: pointer;
+      }
+      .video_bx .control .cc_vol_screen .bi:nth-child(4){
+        font-size: 17px;
+      
+      }
+      /*Volume Control Functions Slider*/
+      .video_bx .control .cc_vol_screen input{
+        width: 0px; /*==TIED++*/
+        opacity: 0;
+        transition: 1s linear; /*Volume Up & Down Settings*/
+      }
+
+       .video_bx .control .cc_vol_screen input[type="range"] {
+        -webkit-appearance: none;
+        background: red;
+        border-radius: 20px; 
+        height: 7px;
+        /* This Is Slider */
+      }
+       .video_bx .control .cc_vol_screen input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        background: #fff;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        /* This Is Slider Scoller */
+      }
+       /* javascript classes start*/
+      
+       .video_bx .control .cc_vol {
+        width: 230px;
+       }
+       .video_bx .control .cc_vol_screen .input_vol{
+        width: 130px;
+        opacity: 1;
+}
+
+       .video_bx .control .start_seekbar{
+        width: 70%;
+       }
+      /* javascript classes end*/
+
+      /* Title For Video Player */
+
+      .video_bx .title_video{
+        position: absolute;
+        top: 2%;
+        left: 2%;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        z-index: 999;
+        
+      }
+      .video_bx .watching{
+        position: absolute;
+        top: 7%;
+        left: 2%;
+        color: rgb(255, 255, 255, .6);
+        font-size: 13px;
+        z-index: 999;
+      }
+
+      .video_bx .watching i{
+        font-size: 10px;
+        margin-right: 3px;
+      }
+
+      .video_bx .heart_pluse{
+        position: absolute;
+        top: 2%;
+        right: 2%;
+        color: #fff;
+        font-size: 16px;
+        z-index: 999;
+        cursor: pointer;
+      }
+
+      .video_bx .heart_pluse i:nth-child(2){
+        margin-left: 20px;
+      }
+      /* Video List */
+
+      .video_bx .video_list { 
+        /* Border For Video Contet */
+        position: absolute;
+        width: 100px;
+        height: 400px;
+        /* border: 1px solid #fff;  */
+        top: 25%;
+        left: 2%;
+        transition: .6s linear;
+        opacity: 0; /*Be Aware of This*/
+      }
+
+      .video_bx .video_list:hover { 
+        opacity: 1;
+    }
+
+      .video_bx .video_list img{
+        /* Images Side Size */
+        width: 120px;
+        height: 80px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        border: 1px solid rgb(255, 255, 255, .6);
+      }
+      /* Video Play End================================ */
+      /* Cato Box 2 */
+
+      .cato_bx2{
+        position: relative;
+        overflow: visible;
+        height: 30px;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px;
+      }
+
+      .cato_bx .cato_left_right:nth-last-child(1) {
+        background: none;
+      }
+
+      .cato_bx2 .left_cato button i {
+        margin-left: 10px;
+        transition: .3s linear;
+      }
+      /* Buttons Bottom */
+      .cato_bx2 #year, 
+      .cato_bx2 #a_z {
+        padding: 4px 15px;
+        position: relative;
+        background: rgb(184, 184, 184, .1);
+      }
+      /* Right Cato */
+
+      .cato_bx2 .right_cato {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .cato_bx2 .right_cato h6{
+        color: rgb(255, 255, 255, .7);
+        font-size: 12px;
+        padding: 8px;
+      }
+      .cato_bx2 .right_cato i{
+        color: yellow;
+        font-size: 13px;
+        margin-right: 8px;
+      }
+      .cato_bx2 .right_cato input[type="range"] {    /* Slider */
+      -webkit-appearance: none;
+      background: red;
+      border-radius: 20px;
+      height: 7px;
+    }
+
+    .cato_bx2 .right_cato input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        background: #fff;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        /* This Is Slider Scoller */
+      }
+
+      .cato_bx2 .right_cato span{
+        color: #fff;
+        font-size: 12px;
+        font-weight: 500;
+        margin-left: 10px;
+      }
+      /* Year Button*/
+
+      .cato_bx2 button .year_bx{
+        position: absolute;
+        width: 80px;
+        height: 120px;
+        /* border: 1px solid #fff; */
+        background: rgb(8, 8, 8, .7);
+        border-radius: 10px 3px 3px 10px;
+        top: 35px;
+        left: 0;
+        z-index: 999;
+        overflow: auto;
+        transition: 1s linear;
+        display: none; /*Be aware Of This*/
+      }
+
+      .cato_bx2 button .year_bx::-webkit-scrollbar{
+        background: transparent;
+        width: 7px;
+    }
+    .cato_bx2 button .year_bx::-webkit-scrollbar-track{
+        background: rgb(184, 184, 184, .4);
+        backdrop-filter: blur(5px);
+        border-radius: 20px;
+    }
+    .cato_bx2 button .year_bx::-webkit-scrollbar-thumb{
+        background: red;
+        border-radius: 20px;
+    }
+
+    .cato_bx2 button .year_bx li{
+    list-style-type: none;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 5px;
+    color: #fff;
+    transition: .3s linear;
+    
+    }
+
+    .cato_bx2 button .year_bx li:hover{
+        color: red;
+    }
+    /* A-Z Letter Button */
+    .cato_bx2 button .letter_bx{
+        width: 40px;
+    }
+    .cato_bx2 button .letter_bx li {
+        font-size: 12.5px;
+        font-weight: 600;
+    }
+
+    /*JavaScript Classes Start Part 2*/
+
+    .cato_bx2 button.show_year1 .year_bx{
+    display: unset;
+    }
+
+    .cato_bx2 button.show_year1 i{
+    transform: rotate(180deg);
+    }
+    .cato_bx2 button .year_bx .li_change {
+        background: red;
+    }
+    /*JavaScript Classes End Part 2*/
+    /* Movie Box Part 2 */
+
+    .movie_bx_2 {
+        width: 90%;
+        height: auto;
+        margin: auto;
+        overflow: unset;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 20px 0px;
+    }
+
+
+    .movie_bx_2 .card {
+        width: 140px;
+        margin: 0;
+    }
+    /* Movies box2 start=================== */
+    /* Movie Buttons End ================================== */
+    .movie_bx_2 .card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.movie_bx_2 .card:hover {
+  transform: scale(1.08);
+  z-index: 5;
+}
+    
+    .all, .latest, .year1, .letter, .rate_change {
+  width: 100%;
+  height: auto;
+  /* border: 1px solid #fff; */
+
+  display: none; /*grid*/
+  /* grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); */
+  gap: 20px; /*this is gag between */
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: start;
+}
+
+
+/* Show active section */
+.box2_actives {
+  display: flex;
+}
+/* Fixxing boxes end  */
+
+/* Footer Fix */
+.container{
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+
+
+/*=============== FOOTER ===============*/
+.footer{
+  padding-block: 5rem 2rem;
+  
+}
+.footer a{
+  text-decoration: none;
+}
+
+
+.footer__container{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;  /* left / center / right */
+  align-items: center;
+  padding-inline: 10.25rem; /* was 1.5rem */
+
+}
+
+.footer__links{
+  justify-self: center;
+ column-gap: 2rem;      /* space between Home / About / Projects */
+  margin-right: 4rem;
+}
+
+/* RIGHT */
+.footer__social{
+  justify-self: end;
+
+}
+/* This is the Logo Start */
+.footer__logo{
+    color: var(--white-color);
+  font-size: 26px;
+  font-weight: var(--font-semi-bold);
+  justify-self: center;
+
+  transition: color .4s;
+  justify-self: start;
+  margin-bottom: .5rem; /* remove the big gap */
+
+  display: inline-block; /* REQUIRED for translateY logo */
+  transition: 
+    color .35s ease,
+    transform .35s ease;
+}
+/* This is the Logo End */
+.footer__logo:hover{
+  color: var(--first-color); /* your blue */
+  transform: translateY(-4px);
+
+}
+/* This is the words Home/Art station/Projects Start */
+
+.footer__link{
+  color: rgba(255, 255, 255, .7);
+  font-size: 18.5px;
+  margin-left: 4rem;
+
+  display: inline-block; /* REQUIRED for translateY */
+  transition: 
+    color .35s ease,
+    transform .35s ease;
+}
+
+.footer__link:hover{
+  color: var(--first-color); /* your blue */
+  transform: translateY(-4px);
+}
+/* This is the words Home/Art station/Projects end */
+
+.footer__social-link{
+  display: inline-block; 
+  color:rgb(255, 255, 255, .7);
+  font-size: 1.7rem;
+  margin-left: .8rem;
+  transition: transform .4s;
+}
+.footer__social-link:hover{
+  transform: translateY(-.25rem);
+  color: var(--first-color); /* your blue */
+}
+
+.footer__copy{
+  display: block;
+  margin-top: 5rem;
+  text-align: center;
+  font-size: var(--small-font-size);
+  color: var(--gray-color);
+}
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar{
+  width: .6rem;
+  background-color: hsla(0, 0%, 15%);
+  border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: hsl(0, 0%, 25%);
+  border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background-color: hsl(0, 0%, 35%);
+}
+
+/*=============== SCROLL UP ===============*/
+.scrollup{
+  position: fixed;
+  right: 1rem;
+  bottom: -50%;
+  background-color: var(--body-color);
+  box-shadow: 0 4px 16px hsla(0, 0%, 0%, .5);
+  display: inline-flex;
+  padding: 6px;
+  color: var(--white-color);
+  font-size: 1.25;
+  border-radius: .25rem;
+  z-index: var(--z-tooltip);
+  transition: bottom .4s, transform .4s;
+}
+
+.scrollup:hover{
+  transform: translateY(-.5rem);
+}
+
+
+/* when active */
+/* .all.box2_actives { 
+  display: grid;
+} */
+
+
+
+    
+    /* Movies box2 end=================== */
+
+
+
+
+/*================================This is for 2k Resolution Video===============================================*/
+/*@media screen and (max-width: 1945px){
+
+      header video {
+    position: absolute;
+    width: 145%;
+    height: 200%;
+    transform: translateX(-140px);
+    
+}
+}
+
+@media screen and (max-width: 1783px){
+
+      header video {
+    position: absolute;
+    width: 155%;
+    height: 200%;
+    transform: translateX(-220px);
+    
+}
+}*/
+
+
+
+
+
+
+/* =========================================================
+   RESPONSIVE / MEDIA QUERIES (Organized)
+   Order: Largest -> Smallest
+   Goal: Keep rules predictable + easy to edit
+   ========================================================= */
+   /* ===================== 2k and up ===================== */
+/* @media screen and (min-width: 1800px){
+      header video {
+    position: absolute;
+    width: 225%;
+    height: 225%;
+    transform: translateX(-580px) translateY(-180px);
+  }
+
+  header .content {
+    padding-top: 100px;
+  }
+    header .content h1{
+    font-size: 80px;
+   
+}
+
+header .content p {
+    font-size: 22px;
+    max-width: 1000px;
+}
+header .content h6 {
+
+    font-size: 20px;
+
+}
+
+header .content .details h5 {
+
+    font-size: 20px;
+
+}
+
+header .content .details h4 {
+ 
+    font-size: 20px;
+}
+
+header .content .details h3 {
+   font-size: 20px;
+}
+
+header .content .btns {
+    margin-top: 32px;
+}
+header .content .btns a{
+    font-size: 32px;
+}
+header nav .logo_ul ul li a{
+  font-size: 22px;         /* was larger */
+  /* white-space: nowrap; */
+/* }
+header nav .logo_ul img{
+  width: 80px; /*Ferg Logo Size*/
+/* }  */
+/* 
+} */ 
+/* ===================== 1441px and down ===================== */
+/* Main: header background video framing */
+/* @media screen and (min-width: 1441px){
+  /* header video {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    transform: translateX(-400px) translateY(-180px);
+  } */
+    /* header .content h1{
+    font-size: 70px;
+   
+}
+
+header .content p {
+    font-size: 20px;
+    max-width: 820px;
+}
+header .content h6 {
+
+    font-size: 20px;
+
+}
+
+header .content .details h5 {
+
+    font-size: 20px;
+
+}
+
+header .content .details h4 {
+ 
+    font-size: 20px;
+}
+
+header .content .details h3 {
+   font-size: 20px;
+}
+
+header .content .btns {
+    margin-top: 30px;
+}
+header .content .btns a{
+    font-size: 30px;
+/* }
+header nav .logo_ul ul li a{
+  font-size: 17px;         /* was larger *
+/* }  
+
+} 
+
+
+/* ===================== 1339px and down ===================== */
+/* Main: search bar shrink + avatar shrink */
+@media screen and (max-width: 1339px){
+     header video {
+    position: absolute;
+    width: 180%;
+    height: 200%;
+    transform: translateX(-250px) translateY(-20px);
+  }
+
+  header nav{
+    padding: 10px 25px;
+    height: auto;
+    gap: 12px;                 /* keep a real gap between left + right */
+    flex-wrap: nowrap;         /* prevents the search from dropping */
+  }
+
+  /* Let left side actually shrink instead of pushing into search */
+  header nav .logo_ul{
+    min-width: 0;              /* you already have this, keep it */
+  }
+    /* header nav .logo_ul ul{
+    gap: -100px;   /* try 8px–12px 
+  }  thi is gap for logo and header*/
+
+
+  /* Keep search on the right and never overlap */
+  header nav .search_user{
+    margin-left: auto;
+    transform: none;
+    flex-shrink: 0;            /* search container won't get crushed oddly */
+  }
+
+  /* ✅ THE BIG ONE: make search input shrink smoothly instead of fixed 220px */
+  header nav .search_user input{
+    width: clamp(160px, 18vw, 220px);
+    padding: 8px 16px;
+    /* font-size: 11px; */
+  }
+  header nav .logo_ul ul li{
+  margin-right: -10px;
+}
+
+
+  /* ✅ Make menu text shrink slightly (smooth) instead of hard setting 12px */
+  header nav .logo_ul ul li a{
+    font-size: clamp(15px, 0.95vw, 12px);
+    white-space: nowrap;       /* stops links from wrapping into 2 lines */
+  }
+}
+
+
+
+/* ===================== 1235px and down ===================== */
+/* Main: header video tighter + nav text smaller */
+@media screen and (max-width: 1235px){
+  /* Download page start */
+ .down_page{
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  /* IMAGE: make it feel less dominant */
+  .down_page .img_bx, .cont_bx{
+    height: 300px;
+  }
+
+  .down_page .img_bx img{
+    width: 100%;
+    height: 100%;
+  }
+   .down_page .cont_bx{
+  padding-top: 0px;
+}
+
+  /* TEXT: subtle scale-down (not crushed) */
+  .down_page .cont_bx h1{
+    font-size: 19px;
+  }
+
+  .down_page .cont_bx p{
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+  .down_page .cont_bx h3{
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  /* screenshots shrink proportionally */
+  .down_page .cont_bx .screen_shot_bx img{
+    width: 160px;
+    height: 100px;
+  }
+
+  /* buttons stay readable but compact */
+  .down_page .cont_bx .btns{
+    flex-wrap: wrap;
+    gap: 0px;
+  }
+
+  .down_page .cont_bx .btns a{
+    padding: 6px 22px;
+    font-size: 13px;
+    
+  }
+ /* Download page end */
+  header video {
+    position: absolute;
+    width: 220%;
+    height: 200%;
+    transform: translateX(-345px) translateY(-20px);
+  }
+
+  /* header nav .logo_ul ul li a{
+    font-size: 12px;
+  } */
+}
+
+
+/* ===================== 1150px and down ===================== */
+/* Main: full width header + move logo/menu slightly */
+@media screen and (max-width: 1150px){
+ /* Download page start */
+ .down_page{
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  /* IMAGE: make it feel less dominant */
+  .down_page .img_bx, .cont_bx{
+    height: 300px;
+  }
+
+  .down_page .img_bx img{
+    width: 100%;
+    height: 100%;
+  }
+   .down_page .cont_bx{
+  padding-top: 0px;
+}
+
+  /* TEXT: subtle scale-down (not crushed) */
+  .down_page .cont_bx h1{
+    font-size: 19px;
+  }
+
+  .down_page .cont_bx p{
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+  .down_page .cont_bx h3{
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  /* screenshots shrink proportionally */
+  .down_page .cont_bx .screen_shot_bx img{
+    width: 140px;
+    height: 100px;
+  }
+
+  /* buttons stay readable but compact */
+  .down_page .cont_bx .btns{
+    flex-wrap: wrap;
+    gap: 0px;
+  }
+
+  .down_page .cont_bx .btns a{
+    padding: 6px 22px;
+    font-size: 13px;
+    margin-top: 0px; 
+  }
+ /* Download page end */
+
+  header nav{
+    padding: 10px 20px;
+    gap: 10px;             /* IMPORTANT: don’t use 0, keep breathing room */
+    flex-wrap: nowrap;     /* keep same layout until 929 */
+  height: auto;          /* ✅ removes the 10% squeeze */
+}
+
+  header nav .logo_ul{
+    margin-left: 0;
+    
+  }
+
+  header nav .logo_ul ul{
+    gap: 6px;       
+          /* spacing between Projects/Cinematics/etc */
+  }
+
+  header nav .logo_ul ul li{
+     padding: 2px 8px;
+  }
+  header nav .logo_ul ul li a{
+  font-size: 12.5px;         /* was larger */
+  white-space: nowrap;
+}
+
+
+  /* ✅ key: let search input shrink BEFORE collision */
+  header nav .search_user input{
+     width: clamp(140px, 16vw, 220px);  /* NOT 10px */
+  padding: 8px 14px;
+  }
+  .video_bx{
+  position: relative;
+  width: min(100%, 1200px);   /* looks good on desktop like your 1200 view */
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;       /* 🔥 locks it to 1920x1080 shape */
+  height: auto;               /* important: prevents tall stretching */
+  overflow: hidden;
+  border-radius: 20px;        /* optional if you like the rounded player */
+}
+
+/* the actual video fills the 16:9 box */
+.video_bx video{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;        /* contain = no crop (like YouTube letterbox) */
+  /* use cover if you WANT it to crop and fill */
+}
+}
+
+
+
+
+/* ===================== 1013px and down ===================== */
+/* Main: even tighter video framing */
+@media screen and (max-width: 1013px){
+  /* Download page start */
+ .down_page{
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  /* IMAGE: make it feel less dominant */
+  .down_page .img_bx, .cont_bx{
+    height: 280px;
+  }
+
+  .down_page .img_bx img{
+    width: 100%;
+    height: 100%;
+  }
+   .down_page .cont_bx{
+  padding-top: 0px;
+}
+
+  /* TEXT: subtle scale-down (not crushed) */
+  .down_page .cont_bx h1{
+    font-size: 19px;
+  }
+
+  .down_page .cont_bx p{
+    font-size: 9px;
+    line-height: 1.45;
+  }
+
+  .down_page .cont_bx h3{
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  /* screenshots shrink proportionally */
+  .down_page .cont_bx .screen_shot_bx img{
+    width: 140px;
+    height: 100px;
+  }
+
+  /* buttons stay readable but compact */
+  .down_page .cont_bx .btns{
+    flex-wrap: wrap;
+    gap: 0px;
+  }
+
+  .down_page .cont_bx .btns a{
+    padding: 6px 14px;
+    font-size: 11px;
+    margin-top: 0px; 
+  }
+ /* Download page end */
+  
+  /* HEADER VIDEO )))))))))) */
+    header video {
+    position: absolute;
+    width: 215%;
+    height: 215%;
+    transform: translateX(-346px) translateY(-90px);
+  }
+    /* 1) Give the control bar breathing room */
+  .video_bx .control{
+    width: 95%;              /* slightly wider so elements have room */
+    gap: 10px;               /* ✅ prevents buttons from touching */
+    padding: 0 12px;
+  }
+
+  /* 2) Lock left + right groups to real widths (not % that collapses) */
+  .video_bx .control .play_redo{
+    width: 70px;             /* a bit more space for the 10s badge */
+    flex: 0 0 auto;
+  }
+
+  .video_bx .control .cc_vol_screen{
+    width: auto;             /* ✅ STOP using 8% */
+    flex: 0 0 auto;
+    gap: 10px;               /* spacing between the icons */
+  }
+
+  /* 3) Let the middle seekbar take leftover space */
+  .video_bx .control .start_seekbar_end{
+    width: auto;             /* ✅ STOP using 85% */
+    flex: 1 1 auto;
+    min-width: 0;            /* ✅ allows seekbar to shrink properly */
+  }
+
+  /* 4) Reduce the time spacing so it doesn’t steal space */
+  .video_bx .control .start_seekbar_end span{
+    margin: 0 12px;          /* was 28px */
+    width: 48px;             /* was 55px */
+    font-size: 12px;         /* slightly smaller */
+  }
+
+  /* 5) Keep the seekbar wide */
+  .video_bx .control .start_seekbar_end .seek{
+    width: 100%;
+  }
+}
+
+/* ===================== 929px and down ===================== */
+/* Main: nav tightening (logo/menu left, search right) */
+@media screen and (max-width: 929px){
+
+   
+     header{
+        position: relative;
+
+    width: 100%;
+    margin: 0;             /* remove the auto-centering + top gap */
+    border: 0;
+    border-radius: 0;      /*optional: makes it true full-screen */
+    height: 90vh;          /* keep same height feel */
+  }
+    header nav .logo_ul img{
+    position: absolute;
+    left: 18px;
+   margin-bottom: -100px;
+    z-index: 5;
+
+    width: 54px;     /* keep your size; adjust if you want */
+    height: auto;
+  }
+  
+
+  header nav{
+    flex-wrap: wrap;
+    row-gap: 10px;         /* ✅ adds vertical spacing after wrap */
+  }
+
+  header nav .logo_ul{
+    flex: 1 1 100%;
+  }
+
+  header nav .logo_ul ul{
+    justify-content: flex-start;
+    gap: 14px;
+  }
+  header nav .logo_ul ul li a{ 
+    font-size: 15px;
+}
+
+  header nav .search_user{
+    flex: 1 1 100%;
+    justify-content: flex-end;
+    
+  }
+
+  header nav .search_user input{
+    width: min(260px, 100%);
+  }
+  .video_bx .watching{
+       
+        margin: 5px 10px;
+  }  
+    .cato_bx.cato_bx2{
+    column-gap: 10px;
+    row-gap: 10px;           /* key: vertical breathing room */
+    padding-bottom: 12px; 
+      /* keeps divider safe */
+        display: flex;
+    flex-wrap: wrap;
+
+    /* spacing between items */
+    column-gap: 10px;
+    row-gap: 10px;
+
+    
+    /* IMPORTANT: keeps the divider line visible and not “eaten” */
+    /* border-bottom: 2px solid rgba(184, 184, 184, .1); */
+    padding-bottom: 14px;
+    margin-bottom: 10px;
+
+    /* prevents tight squeeze + weird collapsing */
+    align-items: center;
+    justify-content: flex-start;
+
+    /* if anything is clipping, force visible */
+    overflow: visible;
+  }
+  
+
+  /* Buttons themselves */
+  .cato_bx.cato_bx2 button{
+    padding: 5px 12px;      /* slightly tighter */
+    font-size: 13px;
+    
+  }
+  .movie_bx_2{
+    margin-top: 25px;             /* creates gap from the filter row */
+  }
+  
+  /* header nav .search_user{ */
+    /* margin-right: 45px;     ✅ pins it to the right */
+  /* display: flex;
+  align-items: center; */
+  /* gap: 0px; separation */
+  /* max-width: 100%; */
+  /* } */
+  /* Top Arrows / Buttons */
+  
+
+  /* Turn the arrow holders into small round buttons */
+  .cato_bx .cato_left_right{       /* instead of sticky */
+    right: 1x;                 /* right arrow position */
+    width: .5px;
+  }
+
+  /* Left arrow sits slightly left of the right arrow */
+  .cato_bx .cato_left_right:first-of-type{
+    right: 20px;
+  }
+
+  /* Icon size */
+  .cato_bx .cato_left_right i{
+    font-size: 14px;
+  }
+ /*FOOTER*/
+ .footer__link{
+  font-size: 15.5px;
+}
+/* Download page start */
+ .down_page{
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  /* IMAGE: make it feel less dominant */
+  .down_page .img_bx, .cont_bx{
+    height: 270px;
+  }
+
+  .down_page .img_bx img{
+    width: 100%;
+    height: 100%;
+  }
+   .down_page .cont_bx{
+  padding-top: 0px;
+}
+
+  /* TEXT: subtle scale-down (not crushed) */
+  .down_page .cont_bx h1{
+    font-size: 19px;
+  }
+
+  .down_page .cont_bx p{
+    font-size: 8px;
+    line-height: 1.45;
+    margin-bottom: 5px;
+  }
+
+  .down_page .cont_bx h3{
+    font-size: 8px;
+    margin-bottom: 10px;
+  }
+
+  /* screenshots shrink proportionally */
+  .down_page .cont_bx .screen_shot_bx img{
+    width: 140px;
+    height: 100px;
+  }
+
+  /* buttons stay readable but compact */
+  .down_page .cont_bx .btns{
+    flex-wrap: wrap;
+    gap: 0px;
+  }
+
+  .down_page .cont_bx .btns a{
+    padding: 6px 10px;
+    font-size: 10px;
+    margin-top: 0px; 
+  }
+ /* Download page end */
+}
+
+
+
+/* ===================== 760px and down ===================== */
+/* Main: tablet/phone layout
+   - IMPORTANT: This also replaces your old 755px block.
+   - We hide header video here, since 760 covers 755 anyway.
+*/
+@media screen and (max-width: 760px){
+  /* Hide the background video on small screens */
+  .down_page{ 
+  display: none;
+  }
+  /* Downpage END */
+  header video {
+    position: absolute;
+    width: 230%;
+    height: 230%;
+    transform: translateX(-300px) translateY(-150px);
+  }
+
+ header nav .logo_ul img{
+   
+   margin-bottom: -100px;
+   
+  }
+
+
+      header nav .logo_ul ul li a{
+    font-size: clamp(15px, 2.2vw, 11px);
+    white-space: nowrap;
+  }
+
+  .video_bx .title_video{
+    font-size: 16px;
+}
+
+   .video_bx .watching{
+       
+        margin: 10px 10px;
+  }  
+ 
+   
+}
+@media screen and (max-width: 737px){
+header video {
+    display: none;
+  }
+ .footer__container{
+    grid-template-columns: 1fr;   /* stop the 3-column layout */
+    row-gap: 14px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  /* Logo centered */
+  .footer__logo{
+    justify-self: center;
+    margin-bottom: 0;
+  }
+
+  /* Links in one neat row (or wrap nicely) */
+  .footer__links{
+    justify-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 18px;
+
+    margin-right: 0;             /* REMOVE desktop shift */
+  }
+
+  /* Remove the desktop "push right" */
+  .footer__link{
+    margin-left: 0;              /* REMOVE desktop margin */
+    font-size: 14px;             /* optional: a touch smaller */
+  }
+
+  /* Social icons centered */
+  .footer__social{
+    justify-self: center;
+  }
+
+  .footer__social-link{
+    margin-left: 0;              /* don’t push sideways on mobile */
+    margin-inline: 8px;          /* even spacing */
+    font-size: 1.4rem;           /* optional */
+  }
+  /* ARROWS */
+  .movie_bx_1 button:nth-child(2){
+  left: calc(100% - 34px) !important;
+}
+  
+}
+
+
+/* ===================== 502px and down ===================== */
+@media screen and (max-width: 502px){
+    header video {
+   display: none;
+  }
+  header nav .logo_ul ul li a{
+    font-size: clamp(11px, 2.2vw, 11px);
+    white-space: nowrap;
+  }
+
+
+header .content p{
+  font-size: clamp(12px, 2.6vw, 14px);
+}
+
+header nav .logo_ul ul li a{
+  font-size: clamp(11px, 2.4vw, 15px);
+}
+}
+/* ===================== 540px and down ===================== */
+/* Main: tiny screens — reduce padding */
+@media screen and (max-width: 540px){
+  header nav .logo_ul ul li a{
+    font-size: clamp(13px, 2.2vw, 11px);
+    white-space: nowrap;
+  }
+  header nav .logo_ul img{
+  position: absolute;
+  left: 18px;
+  
+}
+
+    header .content {
+  font-size: clamp(10px, 6.2vw, 50px);
+  padding: 0px 18px 00px; /*Header Content Movement*/
+}
+
+header .content p{
+  font-size: clamp(12px, 2.6vw, 14px);
+}
+
+header nav .logo_ul ul li a{
+  font-size: clamp(11px, 2.4vw, 15px);
+}
+ 
+  .movie_bx_2{
+    margin-top: 40px;             /* creates gap from the filter row */
+  }
+  /* Top Arrows / Buttons */
+  
+
+  /* Turn the arrow holders into small round buttons */
+  .cato_bx .cato_left_right{       /* instead of sticky */
+    right: 1x;                 /* right arrow position */
+    width: .5px;
+  }
+
+  /* Left arrow sits slightly left of the right arrow */
+  .cato_bx .cato_left_right:first-of-type{
+    right: 20px;
+  }
+/* FOOTER */
+  /* Icon size */
+  .footer__container{
+    grid-template-columns: 1fr;   /* stop the 3-column layout */
+    row-gap: 14px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  /* Logo centered */
+  .footer__logo{
+    justify-self: center;
+    margin-bottom: 0;
+  }
+
+  /* Links in one neat row (or wrap nicely) */
+  .footer__links{
+    justify-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 18px;
+
+    margin-right: 0;             /* REMOVE desktop shift */
+  }
+
+  /* Remove the desktop "push right" */
+  .footer__link{
+    margin-left: 0;              /* REMOVE desktop margin */
+    font-size: 14px;             /* optional: a touch smaller */
+  }
+
+  /* Social icons centered */
+  .footer__social{
+    justify-self: center;
+  }
+
+  .footer__social-link{
+    margin-left: 0;              /* don’t push sideways on mobile */
+    margin-inline: 8px;          /* even spacing */
+    font-size: 1.4rem;           /* optional */
+  }
+  /* HOVER ELIMATER */
+    /* .movie_bx_1 .card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    z-index: auto !important;
+  } */
+ 
+  
+}
+
+
+/* ===================== 502px and down ===================== */
+@media screen and (max-width: 502px){
+    header video {
+   display: none;
+  }
+  header nav .logo_ul ul li a{
+    font-size: clamp(11px, 2.2vw, 11px);
+    white-space: nowrap;
+  }
+
+
+header .content p{
+  font-size: clamp(12px, 2.6vw, 14px);
+}
+
+header nav .logo_ul ul li a{
+  font-size: clamp(11px, 2.4vw, 15px);
+}
+
+}
+
+
+/* ===================== 465px and down ===================== */
+@media screen and (max-width: 465px){
+  header .content h1{
+    font-size: 40px;
+   
+  }
+    .cato_bx2 .left_cato{
+    display: flex;
+    flex-wrap: wrap;
+
+    /* THIS is the main fix */
+    gap: 10px 10px;          /* row-gap / column-gap */
+
+    /* gives the wrapped 2nd line breathing room */
+    margin-top: 6px;
+
+    align-items: center;
+  }
+   .movie_bx_2{
+    margin-top: 60px;             /* creates gap from the filter row */
+  }
+
+}
+/* ===================== 430px and down ===================== */
+@media screen and (max-width: 430px){
+
+  /* 1) Allow the nav to wrap into 2 lines cleanly */
+  header{
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+  /* CARDS Hover FIX  */
+  header section .cards .card:hover {
+    min-width: 170px;
+    overflow: visible;
+  }
+
+  header section .cards .card:hover .rest_card {
+    opacity: 0;
+    z-index: -1;
+  }
+  /* 2) Make menu row full width */
+  header nav .logo_ul ul{
+   gap: 8px;
+   margin-right: 8px;
+  }
+
+ 
+header .content{
+    padding-bottom: 30px;
+  }
+
+  /* 3) Better clamp so it can shrink more at 300px */
+  header nav .logo_ul ul li a{
+    font-size: clamp(11px, 3.2vw, 10px);
+    white-space: nowrap;
+  }
+
+  /* 4) Put search + avatar on their own line, aligned right */
+  header nav .search_user{
+    flex: 1 1 100%;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  header nav .search_user input{
+    width: min(210px, 100%);
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  header nav .search_user img{
+    width: 36px;
+    height: 36px;
+    margin-left: 0;
+    
+  }
+   header{
+    width: 100vw;      /* ✅ true full width */
+    max-width: 100%;
+    margin: 0;         /* ✅ no auto margins = no side gaps */
+    border-radius: 0;  /* optional, but removes corner “frame” look */
+  }
+    /* ---------- DIFFICULTY SLIDER TEXT ---------- */
+  .cato_bx2 .right_cato h6,
+  .cato_bx2 .right_cato span{
+    font-size: clamp(10px, 3vw, 12px);
+  }
+    .tranding_bx{
+    padding: 20px 0;
+    gap: 10px;
+  }
+
+  /* Icon size */
+  .tranding_bx li i{
+    font-size: 12px;
+  }
+
+  /* Text size */
+  .tranding_bx li a{
+    font-size: clamp(11px, 3.2vw, 13px);
+    white-space: nowrap;
+  }
+
+  /* Optional: reduce hit area slightly */
+  .tranding_bx li{
+    padding: 0 4px;
+  }
+
+  /* Middle Arrows */
+/* ===== Phone: lock arrows inside the row ===== */
+  
+}
+
+  
+
+/* ===================== 380px and down ===================== */
+@media screen and (max-width: 410px){
+header nav .logo_ul ul{
+   gap: 8px;
+   margin-right: 8px;
+  }
+    header nav .logo_ul ul li a{
+    font-size: clamp(8px, 3.2vw, 10px);
+    white-space: nowrap;
+  }
+
+
+}
+
+/* ===================== 380px and down ===================== */
+@media screen and (max-width: 380px){
+
+  /* HEADER FULL WIDTH (prevents left-side black strip) */
+  header{
+    width: 105%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+  header nav .search_user{
+    padding: 10px;
+  }
+
+  /* NAV PADDING (reduces side squeeze) */
+  header nav{
+    padding: 12px 10px;
+    column-gap: 6px;
+    row-gap: 8px;
+  }
+
+  /* MENU SPACING (brings links closer together) */
+  header nav .logo_ul ul{
+   gap: 8px;
+   margin-right: 8px;
+  }
+
+  header nav .logo_ul ul li{
+    padding: 2px 6px;
+  }
+
+  /* SEARCH WIDTH (keeps it from pushing out) */
+  header .content{
+    padding-bottom: 60px;
+  }
+  header nav .search_user input{
+    width: min(170px, 100%);
+  }
+  header .content h1{
+    font-size: 20px;
+   
+  }
+  header .content p {
+    font-size: 10px
+  }
+  header .content .btns {
+    margin-top: 10px;
+  }
+  header .content .btns a{
+   font-size: 10px;
+   
+}
+ .movie_bx_2{
+    margin-top: 80px;             /* creates gap from the filter row */
+  }
+/* Double Slides */
+
+}
+
+/* CARDS FIXER */
+/* ===== Mobile: kill the hover-grow stretch on real phones ===== */
+@media (hover: none) and (pointer: coarse) {
+  header section .cards .card:hover{
+    min-width: 170px !important;
+    overflow: visible !important;
+  }
+
+  header section .cards .card:hover .rest_card{
+    opacity: 0 !important;
+  }
+}
+/* ===== iPhone / small screens: stop top slider cards from stretching ===== */
+@media screen and (max-width: 540px){
+
+  /* hard lock the card width so Safari can't do weird min-width math */
+  .movie_bx_1 .card{
+    flex: 0 0 170px !important;  /* replaces min-width behavior on mobile */
+    min-width: 170px !important;
+    margin: 0 9px !important;
+  }
+
+  /* stop images from distorting (THIS is the "stretched" look) */
+  .movie_bx_1 .card a img{
+    display: block;
+    width: 100%;
+    height: 80%;
+    object-fit: cover !important; /* key fix */
+  }
+
+  /* just in case: prevents the row from wrapping/stacking */
+  .movie_bx_1,
+  .movie_bx_1 .movie_bxx{
+    flex-wrap: nowrap !important;
+  }
+   .movie_bx_2{
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between;
+    gap: 1px 1px; /* row gap / column gap */
+  }
+    .movie_bx_2 .card{
+    width: calc(0% - 2px) !important; /* 2 columns with breathing room */
+    margin: 0 !important;              /* prevents old margins messing spacing */
+    flex: 0 0 auto !important;
+  }
+  
+}
